@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Quick-Code</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="{{url_for('static',filename='css/index.css')}}" rel="stylesheet">
+    </head>
+    <body>
+        <header><h1>Quick-Code</h1></header>
+        <div class="side-bar"> 
+            &nbsp;<button class="button-85" role="button">{{ current }} </button>
+            <br> <br>
+                <form class="form-inline" method="POST" action="{{ url_for('options') }}">
+                    <div class="form-group">
+                      <div class="input-group">
+                          <span class="input-group-addon"></span>
+                              <select name="comp_select" class="selectpicker form-control">
+                                {% for o in code_option %}
+                                <option value="{{ o }}">{{ o}}</option>
+                                {% endfor %}
+                              </select>
+                      </div>
+                      <br>
+                      &nbsp;<button type="submit" class="button-31" role="button">Go</button>
+                    </div>
+                  </form>
+        </div>
+        <section>
+            <div id="editor">
+            </div>
+            <div class="bar"><div class="btn"></div></div>
+            <div id="output"> 
+            </div>
+        </section>
+        <div id="bottom">
+            <button class="btnCircle btnBackgroundColor btnColor" onclick="save()" id='save_code'> <i class="fa">&#xf04b;</i></button>  
+        </div>
+        <script src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js"></script>
+        <script type="module" src="{{url_for('static',filename='js/index.js')}}"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    </body>
+</html>
