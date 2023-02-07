@@ -5,8 +5,8 @@ import time
 #run app
 app=Flask(__name__)
 
-client_id = "2b2ffcf483e4951cb18177402094ccdb"
-client_secret="f844f889bb7419603bed4f33d95b57acfa0b36afe2445dab42633b47027516be"
+client_id = ''
+client_secret=''
 output=['yo']
 
 current='python'
